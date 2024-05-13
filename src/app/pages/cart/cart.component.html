@@ -1,0 +1,48 @@
+<div class="parent-container">
+  <div class="flex-container">
+    <div class="top-bar">
+      <div class="title">
+        <h1>Genstande i kurv</h1>
+      </div>
+      <div class="info">
+        <h4>Antal</h4>
+        <h4>Pris</h4>
+        <h4>Total Pris</h4>
+        <h4>Fjern</h4>
+      </div>
+    </div>
+    <div *ngFor="let product of productsArray" class="card">
+      <div class="product-details">
+        <div class="img-card">
+          <img class="img" [src]="product?.image" />
+          <h4>{{ product.name }}</h4>
+        </div>
+        <div class="info-card">
+          <h4>{{ product.quantity }}</h4>
+          <h4>{{ product.price }}</h4>
+          <h4>{{ product.price * product.quantity }}</h4>
+          <svg
+            data-slot="icon"
+            fill="none"
+            stroke-width="1.5"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="buy-box">
+        <h4>Total pris</h4>
+        <h4>100kr.</h4>
+        <button>Køb</button>
+    </div>
+  </div>
+</div>

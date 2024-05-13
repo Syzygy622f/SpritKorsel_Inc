@@ -1,0 +1,12 @@
+<div class="parent-container">
+  <div *ngFor="let products of products" class="flex-container">
+    <div class="produkt-pic">
+      <img class="pictures" [src]="products.image" alt="{{ products.name }}" />
+    </div>
+    <div class="produkt-info">
+      <h1>{{ products.name }}</h1>
+      <h3>{{ products.price | currency : "DKK" }}</h3>
+      <button [routerLink]="['/productDetails', products.id]">Kig</button>
+    </div>
+  </div>
+</div>

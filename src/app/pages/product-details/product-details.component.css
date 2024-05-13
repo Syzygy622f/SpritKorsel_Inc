@@ -1,0 +1,45 @@
+.parent-container{
+    display: flex;
+
+    align-items: center; /* Centers children vertically */
+    height: 100vh; /* Full viewport height */
+    top: 0%;
+}
+.flex-container{
+    display: flex;
+    justify-content: center;
+
+    gap: 220px;
+}
+.pictures{
+    width: 479px;
+    height: 529px;
+
+    aspect-ratio: attr(width) / attr(height);
+    object-fit: cover;
+}
+
+.produkt-info{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.produkt-info input{
+    width: 100px;
+}
+.price-input-container {
+    display: flex;
+    align-items: center; /* This ensures the h3 and input are vertically aligned */
+}
+
+.price-input-container h3 {
+    margin-right: 60px; /* Adjust the value as needed */
+}
+.product-btn button{
+    width: 551px;
+    height: 40px;
+    border:  none;
+    border-radius: 25px;
+    background-color: #2DC7FF;
+    color: white;
+}

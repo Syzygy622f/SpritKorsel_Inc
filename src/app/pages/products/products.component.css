@@ -1,0 +1,36 @@
+.parent-container{
+    margin-top: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; /* Centers children vertically */
+    height: 100vh; /* Full viewport height */
+    gap: 20px;
+}
+.flex-container{
+    border: solid 1px black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers children horizontally */
+    align-items: center; /* Centers children vertically */
+    height: 400px;
+    width: 300px;
+}
+
+.pictures{
+    width: 282px;
+    height: 196px;
+}
+
+.flex-container button{
+    color: white;
+    background-color: #2DC7FF;
+    border: none;
+    width: 150px;
+    height: 35px;
+    border-radius: 15px;
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

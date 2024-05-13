@@ -1,0 +1,79 @@
+.parent-container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+}
+.flex-container {
+  align-items: center; /* Centers items vertically */
+  width: 100%;
+}
+.top-bar {
+  justify-content: center; /* Aligns items horizontally */
+}
+.title {
+  justify-content: center; /* Aligns items horizontally */
+}
+.info {
+  gap: 100px;
+  margin-left: 160px;
+  display: flex;
+  justify-content: space-evenly; /* Aligns items horizontally */
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0%;
+  border-color: black;
+}
+.product-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.img-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Aligns items horizontally */
+  align-items: center;
+}
+
+.img {
+  width: 179px;
+  height: 229px;
+
+  aspect-ratio: attr(width) / attr(height);
+  object-fit: cover;
+}
+.info-card {
+  gap: 120px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly; /* Aligns items horizontally */
+}
+.info-card svg {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  aspect-ratio: attr(width) / attr(height);
+  object-fit: cover;
+}
+
+.buy-box {
+  border: 2px solid black;
+  position: absolute;
+  right: 0;
+  width: 182px;
+  height: 110px;
+  margin-right: 40px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.buy-box button {
+  color: white;
+  background-color: #2dc7ff;
+  border: none;
+  border-radius: 5px;
+}

@@ -1,0 +1,27 @@
+<div class="parent-container">
+  <div class="flex-container">
+    <div class="produkt-pic">
+      <img class="pictures" [src]="product?.image" alt="{{ product?.name }}" />
+    </div>
+    <div class="product">
+      <div class="produkt-info">
+        <h1>{{ product?.name }}</h1>
+        <p>{{ product?.description }}</p>
+        <div class="price-input-container">
+          <h3>{{ product?.price | currency : "KRR" }}</h3>
+          <input
+            class="amount"
+            type="number"
+            id="Amount"
+            value="1"
+            min="0"
+            max="40"
+          />
+        </div>
+      </div>
+      <div class="product-btn">
+        <button id="saveButton">Læg i Kruv</button>
+      </div>
+    </div>
+  </div>
+</div>

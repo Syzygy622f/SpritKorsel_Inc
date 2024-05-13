@@ -1,0 +1,32 @@
+.parent-container{
+    display: flex;
+    align-items: center; /* Centers children vertically */
+    justify-content: center; /* Centers children horizontally */
+    height: 100vh; /* Full viewport height */
+}
+
+.flex-container{
+    background-color: #0081AF;
+    display: flex;
+    align-items: center; /* Centers children vertically */
+    justify-content: center; /* Centers children horizontally */
+    height: 544px;
+    width: 1122px;
+    border-radius: 25px; /* Rounds all corners with a 25px radius */
+    color: white;
+    gap: 40px;
+}
+
+.Image-holder img{
+    border-radius: 20px;
+}
+
+.link button{
+    background-color: #2DC7FF;
+    border: none;
+    color: white;
+    font-size: xx-large;
+    border-radius: 20px;
+    width: 455px;
+    height: 50px;
+}
