@@ -5,6 +5,7 @@
 .Title{
     margin-left: 15%;
     color: white;
+    cursor: pointer;
 }
 .cart{
     margin-right: 5%;
@@ -26,6 +27,7 @@
     padding-right: 10px; /* Add some space between the text and the line */
     margin-left: 5px; /* Add some space between the lines */
     margin-bottom: 0px;
+    cursor: pointer;
 }
 
 .links p:last-child {

@@ -3,6 +3,7 @@ import { product } from '../../models/Product';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { firstValueFrom } from 'rxjs';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
 
 interface ProductWithAmount extends product {
   quantity: number;
@@ -17,7 +18,7 @@ interface idAndAmount {
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule, RouterLink],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
@@ -39,9 +40,7 @@ export class CartComponent implements OnInit {
           const itemObject = JSON.parse(itemstring);
           if (Array.isArray(itemObject)) {
             itemObject.forEach((item: idAndAmount) => {
-              console.log('item', item);
               this.identifere.push({ id: item.id, quantity: item.quantity });
-              console.log('identify', this.identifere);
             });
           }
         } catch (error) {
@@ -60,12 +59,10 @@ export class CartComponent implements OnInit {
         totalPrice: product.price * identity.quantity, // Calculate totalPrice here
       };
       this.productsArray.push(productWithAmount);
-      console.log('produkt', productWithAmount)
     });
 
     // Sum up all totalPrices after all products have been processed
     const totalSum = this.productsArray.reduce((sum, product) => sum + product.totalPrice, 0);
-    console.log('Total Sum:', totalSum);
   }
 
   public async getDetails(id: number): Promise<product> {
@@ -74,7 +71,6 @@ export class CartComponent implements OnInit {
       const response = await firstValueFrom(
         this.http.get<product>(`https://localhost:7289/api/Customer/${id}`)
       );
-      console.log('response', response);
       return response; // Return the response directly
     } catch (error) {
       console.error('Error fetching product details:', error);

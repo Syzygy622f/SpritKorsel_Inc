@@ -1,20 +1,70 @@
 .parent-container {
-    display: flex;
-    height: 100vh; /* Full viewport height */
-  }
-  .flex-container {
-    align-items: center; /* Centers items vertically */
-    flex-direction: row;
-    width: 100%;
-  }
-
-.customer-info{
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: #F1F7FE;
+  display: flex;
+  height: 100vh; /* Full viewport height */
+}
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centers items vertically */
+  flex-direction: row;
+  width: 100vw;
 }
 
-.delivery-method{
-    border: 1px solid black;
-    border-radius: 2px;
+.delivery-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.customer-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #f1f7fe;
+  min-width: 250px;
+  width: 18vw;
+
+  margin-right: 100px;
+}
+.custumerForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 14vw;
+  padding-top: 5vh;
+  padding-bottom: 6vh;
+}
+
+.custumerForm input {
+  /*jeg har lært jeg skal bruge px i min-width for hvis jeg bruger vw ligesom i width, sætter den min-width til den størrelse istedet men med pixels gør den ikke*/
+  margin-top: 2px;
+  height: 4vh;
+  min-width: 180px;
+  width: 14vw;
+  border: none;
+  box-shadow: 5px 5px 5px lightblue;
+}
+
+.delivery-method {
+  border: 1px solid black;
+  border-radius: 2px;
+  border-radius: 10px;
+  width: 30vw;
+  max-width: 30vw;
+}
+
+.delivery-info {
+  margin: 10%;
+}
+.delivery-info button {
+  margin-top: 15%;
+  float: right;
+  border: none;
+  color: white;
+  background-color: #2DC7FF;
+  width: 7vw;
+  height: 4vh;
+  border-radius: 12px;
 }

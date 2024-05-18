@@ -1,8 +1,66 @@
 <div class="parent-container">
   <div class="flex-container">
     <div class="delivery-container">
-      <div class="customer-info"></div>
-      <div class="delivery-method"></div>
+      <div class="customer-info">
+        <form [formGroup]="costumerForm" class="custumerForm">
+          <input
+            id="Name"
+            type="text"
+            formControlName="Name"
+            placeholder="Enter Name"
+          />
+
+          <input
+            id="Lastname"
+            type="text"
+            formControlName="Lastname"
+            placeholder="Enter Lastname"
+          />
+
+          <input
+            id="Address"
+            type="text"
+            formControlName="Address"
+            placeholder="Enter Address"
+          />
+
+          <input
+            id="City"
+            type="text"
+            formControlName="City"
+            placeholder="Enter City"
+          />
+
+          <input
+            id="PostNumber"
+            type="text"
+            formControlName="PostNumber"
+            placeholder="Enter Post Number"
+          />
+
+          <input
+            id="PhoneNumber"
+            type="text"
+            formControlName="PhoneNumber"
+            placeholder="Enter Phone Number"
+          />
+
+          <input
+            id="Mail"
+            type="email"
+            formControlName="Mail"
+            placeholder="Enter Email"
+          />
+        </form>
+      </div>
+      <div class="delivery-method">
+        <div class="delivery-info">
+          <h1>Leverings metode</h1>
+          <h3>* Hurtigst mulig</h3>
+          <h5>Vi levere det foean din dør hurtigst mulig.</h5>
+          <button (click)="checkCostumer()">Bekræft odre</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
