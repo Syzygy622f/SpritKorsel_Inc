@@ -18,6 +18,13 @@
           />
 
           <input
+          id="Age"
+          type="number"
+          formControlName="Age"
+          placeholder="0"
+          />
+
+          <input
             id="Address"
             type="text"
             formControlName="Address"
@@ -51,14 +58,20 @@
             formControlName="Mail"
             placeholder="Enter Email"
           />
+          <input
+          id="password"
+          type="password"
+          formControlName="password"
+          placeholder="Enter password"
+        />
         </form>
       </div>
       <div class="delivery-method">
         <div class="delivery-info">
           <h1>Leverings metode</h1>
           <h3>* Hurtigst mulig</h3>
-          <h5>Vi levere det foean din dør hurtigst mulig.</h5>
-          <button (click)="checkCostumer()">Bekræft odre</button>
+          <h5>Vi levere det foran din dør hurtigst mulig.</h5>
+          <button (click)="handleclick()">Bekræft odre</button>
         </div>
       </div>
     </div>

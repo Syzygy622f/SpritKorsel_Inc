@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center; /* Centers items vertically */
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
 }
 
 .delivery-container {
@@ -63,8 +63,33 @@
   float: right;
   border: none;
   color: white;
-  background-color: #2DC7FF;
+  background-color: #2dc7ff;
   width: 7vw;
   height: 4vh;
   border-radius: 12px;
+}
+
+@media (max-width: 767px) {
+
+  .delivery-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .delivery-method {
+    width: 60vw;
+    max-width: none;
+  }
+
+  .delivery-info button {
+
+    width: 27vw;
+    height: 5vh;
+    border-radius: 12px;
+  }
+  .customer-info {
+    margin-right: 0px;
+  }
 }

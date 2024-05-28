@@ -13,7 +13,7 @@
   justify-content: center; /* Aligns items horizontally */
 }
 .info {
-  gap: 100px;
+  gap: 13vw;
   margin-left: 160px;
   display: flex;
   justify-content: space-evenly; /* Aligns items horizontally */
@@ -27,6 +27,7 @@
   border-radius: 0%;
   border-color: black;
 }
+
 .product-details {
   display: flex;
   flex-direction: row;
@@ -47,7 +48,7 @@
   object-fit: cover;
 }
 .info-card {
-  gap: 120px;
+  gap: 12vw;
   width: 100vw;
   display: flex;
   justify-content: space-evenly; /* Aligns items horizontally */
@@ -75,4 +76,23 @@
   border: none;
   border-radius: 5px;
   margin-left: auto;
+}
+
+@media (max-width: 767px) {
+  .img{
+    display: none;
+  }
+  .info {
+display: none;
+
+  }
+  .info-card {
+
+gap: 30px;
+  }
+  .product-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

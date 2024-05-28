@@ -1,36 +1,50 @@
-.navbar{
-    background-color: #00ABE7;
+.navbar {
+  background-color: #00abe7;
 }
 
-.Title{
-    margin-left: 15%;
-    color: white;
-    cursor: pointer;
-}
-.cart{
-    margin-right: 5%;
-    height: 50px;
-    color: white;
-    cursor: pointer;
+.Title {
+  margin-left: 15%;
+  color: white;
+  cursor: pointer;
 }
 
-.links{
-    color: white;
-    display: flex;
-    justify-content: center; /* Horizontal centering */
-    align-items: center; /* Vertical centering */
-    gap: 5px;
-    height: 50px;
+.cart {
+  margin-right: 5%;
+  height: 50px;
+  color: white;
+  cursor: pointer;
+}
+
+.links {
+  color: white;
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  gap: 5px;
+  height: 50px;
+
 }
 .links p {
-    border-right: 1px solid #fff; /* Adjust color and thickness as needed */
-    padding-right: 10px; /* Add some space between the text and the line */
-    margin-left: 5px; /* Add some space between the lines */
-    margin-bottom: 0px;
-    cursor: pointer;
+  border-right: 1px solid #fff; /* Adjust color and thickness as needed */
+  padding-right: 10px; /* Add some space between the text and the line */
+  margin-left: 5px; /* Add some space between the lines */
+  margin-bottom: 0px;
+  cursor: pointer;
 }
 
 .links p:last-child {
-    border-right: none; /* Remove the border from the last <p> tag */
+  border-right: none; /* Remove the border from the last <p> tag */
 }
 
+@media (min-width: 1920px) and (min-height: 1080px) {
+    .Title h4{
+        font-size: calc(1vw + 1vh);
+    }
+    .links{
+        font-size: calc(0.7vw + 0.7vh);
+    }
+    .cart{
+        height: 7vh;
+        font-size: calc(0.8vw + 0.8vh);
+    }
+}

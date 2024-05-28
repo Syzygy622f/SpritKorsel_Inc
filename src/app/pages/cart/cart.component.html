@@ -19,9 +19,11 @@
         </div>
         <div class="info-card">
           <h4>{{ product.quantity }}</h4>
-          <h4>{{ product.price }}</h4>
-          <h4>{{ product.price * product.quantity }}</h4>
+          <h4>{{ product.price | currency: 'DKK':'kr.':'1.2-2'}}</h4>
+          <h4>{{ product.price * product.quantity | currency: 'DKK':'kr.':'1.2-2'}}</h4>
           <svg
+          (click)="removeitem(product.id)"
+          class="delete"
             data-slot="icon"
             fill="none"
             stroke-width="1.5"

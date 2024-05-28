@@ -10,23 +10,64 @@
     display: flex;
     align-items: center; /* Centers children vertically */
     justify-content: center; /* Centers children horizontally */
-    height: 544px;
-    width: 1122px;
-    border-radius: 25px; /* Rounds all corners with a 25px radius */
+    height: 50vh;
+    width: 55vw;
+    padding-left: 50px;
+    border-radius: 2vw; /* Rounds all corners with a 25px radius */
     color: white;
     gap: 40px;
 }
 
 .Image-holder img{
     border-radius: 20px;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    width: 25vw; /* Allows the image to scale with the container */
+    height: auto; /* Maintains the aspect ratio */
+    max-width: 100%; /* Prevents the image from overflowing the container */
 }
-
+.produkt-info{
+    font-size: calc(1vw + 1vh);
+}
+.Title h1{
+    font-size: calc(2vw + 2vh);
+}
 .link button{
     background-color: #2DC7FF;
+    text-align: center;
     border: none;
     color: white;
     font-size: xx-large;
-    border-radius: 20px;
-    width: 455px;
-    height: 50px;
+    border-radius: 2vw;
+    width: 25vw;
+    height: 5vh;
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+    font-size: calc(1vw + 1vh);
+}
+
+@media screen and (max-width:768px) {
+    .flex-container{
+        
+        height: 45vh;
+        width: 90vw;
+
+    }
+
+    .Image-holder img{
+        width: 35vw; /* Allows the image to scale with the container */
+        height: auto; /* Maintains the aspect ratio */
+
+    }
+    .flex-container{
+
+        padding-left: 10px;
+        gap: 20px;
+        padding-right: 5px;
+    }
+}
+@media screen and (max-width:425px) {
+    .flex-container{
+ 
+        height: 30vh;
+
+    }
 }

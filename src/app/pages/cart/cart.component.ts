@@ -1,18 +1,15 @@
 import { Component, Inject, OnInit, inject } from '@angular/core';
 import { product } from '../../models/Product';
-import { CommonModule, DOCUMENT } from '@angular/common';
+import { CommonModule, DOCUMENT, registerLocaleData } from '@angular/common';
 import { firstValueFrom } from 'rxjs';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
+import localeDa from '@angular/common/locales/da';
+import { idAndAmount } from '../../models/IdAndAmount';
 
 interface ProductWithAmount extends product {
   quantity: number;
   totalPrice: number;
-}
-
-interface idAndAmount {
-  id: number;
-  quantity: number;
 }
 
 @Component({
@@ -32,12 +29,12 @@ export class CartComponent implements OnInit {
     const localStorage = document.defaultView?.localStorage;
     if (localStorage) {
       // Retrieve the item from localStorage
-      const itemstring = localStorage.getItem('ToCart');
+      const itemString = localStorage.getItem('ToCart');
 
       // Check if the item exists
-      if (itemstring) {
+      if (itemString) {
         try {
-          const itemObject = JSON.parse(itemstring);
+          const itemObject = JSON.parse(itemString);
           if (Array.isArray(itemObject)) {
             itemObject.forEach((item: idAndAmount) => {
               this.identifere.push({ id: item.id, quantity: item.quantity });
@@ -47,6 +44,9 @@ export class CartComponent implements OnInit {
           console.error('Error parsing item from localStorage:', error);
         }
       }
+
+      // Register Danish locale data
+      registerLocaleData(localeDa);
     }
   }
 
@@ -54,7 +54,7 @@ export class CartComponent implements OnInit {
     this.identifere.forEach(async (identity) => {
       const product = await this.getDetails(identity.id);
       const productWithAmount: ProductWithAmount = {
-       ...product,
+        ...product,
         quantity: identity.quantity,
         totalPrice: product.price * identity.quantity, // Calculate totalPrice here
       };
@@ -62,7 +62,10 @@ export class CartComponent implements OnInit {
     });
 
     // Sum up all totalPrices after all products have been processed
-    const totalSum = this.productsArray.reduce((sum, product) => sum + product.totalPrice, 0);
+    const totalSum = this.productsArray.reduce(
+      (sum, product) => sum + product.totalPrice,
+      0
+    );
   }
 
   public async getDetails(id: number): Promise<product> {
@@ -78,4 +81,15 @@ export class CartComponent implements OnInit {
       throw error; // Optionally, re-throw the error if you want to handle it outside this method
     }
   }
+
+  public async removeitem(id: number) {
+    let itemsString = localStorage.getItem('ToCart');
+    if (itemsString) {
+      const items = JSON.parse(itemsString); // Parse the string back into an array
+      if (Array.isArray(items)) {
+        const itemIdToRemove = id; // The ID of the item to remove
+        const filteredItems = items.filter((item) => item.id!== itemIdToRemove);
+        localStorage.setItem('ToCart', JSON.stringify(filteredItems)); // Stringify the filtered array before storing
+      }
+    }
 }
