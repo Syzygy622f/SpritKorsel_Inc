@@ -28,8 +28,8 @@ export class AddressInfoComponent {
   });
 
   async handleclick(): Promise<void> {
-    const items = this.getAmountAndId(); // Get the array of items
-    const idCounts: Record<number, number> = {}; // Mapping of IDs to their counts
+    const items = this.getAmountAndId();
+    const idCounts: Record<number, number> = {}; 
 
     // Aggregate the counts of each ID
     for (const { amount, id } of items) {
@@ -40,13 +40,11 @@ export class AddressInfoComponent {
       }
     }
   
-    // Generate an array of repeated IDs based on the aggregated counts
     const repeatedIds: number[] = [];
     for (const [id, count] of Object.entries(idCounts)) {
       repeatedIds.push(...Array(count).fill(Number(id)));
     }
   
-    // Now, repeatedIds contains the aggregated array of IDs to be passed to checkCustomer
     await this.checkCustomer(repeatedIds);
   }
 
@@ -81,28 +79,19 @@ export class AddressInfoComponent {
   }
 
   private getAmountAndId(): { amount: number, id: number }[] {
-    // Retrieve the array from localStorage, expecting it to be a stringified version of an array
-    let localStorageData = localStorage.getItem('ToCart'); // Replace 'yourKey' with the actual key used to store the array
+    let localStorageData = localStorage.getItem('ToCart'); 
     
     if (!localStorageData) {
-      return []; // Return an empty array if nothing was found
+      return []; 
     }
     
-    // Parse the stringified array back into an array of objects
     let dataArray = JSON.parse(localStorageData);
   
-    // Map through the array to transform each object into the desired format
     let transformedData = dataArray.map((item: idAndAmount) => ({
       amount: Number(item.quantity),
       id: Number(item.id)
     }));
   
     return transformedData;
-  }
-
-
-  private createRepeatedIds(amount: number, id: number): number[] {
-    console.log(new Array(amount).fill(id));
-    return new Array(amount).fill(id);
   }
 }

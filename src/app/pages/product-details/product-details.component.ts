@@ -35,7 +35,6 @@ export class ProductDetailsComponent implements OnInit {
       this.product = response;
     } catch (error) {
       console.error('Error fetching product details:', error);
-      // Handle the error appropriately
     }
   }
 
@@ -44,14 +43,11 @@ export class ProductDetailsComponent implements OnInit {
       .value;
     const newItem = { id: this.product?.id, quantity: inputValue };
 
-    // Retrieve existing items from localStorage and parse them into an array
     let cartItems = localStorage.getItem('ToCart');
     let cartArray = cartItems ? JSON.parse(cartItems) : [];
 
-    // Add new item to the array
     cartArray.push(newItem);
 
-    // Store the updated list back to localStorage
     localStorage.setItem('ToCart', JSON.stringify(cartArray));
     console.log('added to localstorage');
   }

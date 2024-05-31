@@ -28,6 +28,6 @@ export class ProductsComponent implements OnInit {
 
        this.products = response
     });
-  }
+    }
 
 }

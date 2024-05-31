@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, inject } from '@angular/core';
 import { product } from '../../models/Product';
-import { CommonModule, DOCUMENT, registerLocaleData } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { firstValueFrom } from 'rxjs';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
@@ -25,13 +25,11 @@ export class CartComponent implements OnInit {
   identifere: idAndAmount[] = [];
   http = inject(HttpClient);
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
+  constructor() {
     const localStorage = document.defaultView?.localStorage;
     if (localStorage) {
-      // Retrieve the item from localStorage
       const itemString = localStorage.getItem('ToCart');
 
-      // Check if the item exists
       if (itemString) {
         try {
           const itemObject = JSON.parse(itemString);
@@ -45,7 +43,6 @@ export class CartComponent implements OnInit {
         }
       }
 
-      // Register Danish locale data
       registerLocaleData(localeDa);
     }
   }
@@ -56,12 +53,11 @@ export class CartComponent implements OnInit {
       const productWithAmount: ProductWithAmount = {
         ...product,
         quantity: identity.quantity,
-        totalPrice: product.price * identity.quantity, // Calculate totalPrice here
+        totalPrice: product.price * identity.quantity,
       };
       this.productsArray.push(productWithAmount);
     });
 
-    // Sum up all totalPrices after all products have been processed
     const totalSum = this.productsArray.reduce(
       (sum, product) => sum + product.totalPrice,
       0
@@ -69,27 +65,29 @@ export class CartComponent implements OnInit {
   }
 
   public async getDetails(id: number): Promise<product> {
-    // Note the addition of : Promise<product> to indicate the return type
     try {
       const response = await firstValueFrom(
         this.http.get<product>(`https://localhost:7289/api/Customer/${id}`)
       );
-      return response; // Return the response directly
+      return response;
     } catch (error) {
       console.error('Error fetching product details:', error);
-      // Handle the error appropriately
-      throw error; // Optionally, re-throw the error if you want to handle it outside this method
+
+      throw error;
     }
   }
 
   public async removeitem(id: number) {
     let itemsString = localStorage.getItem('ToCart');
     if (itemsString) {
-      const items = JSON.parse(itemsString); // Parse the string back into an array
+      const items = JSON.parse(itemsString);
       if (Array.isArray(items)) {
-        const itemIdToRemove = id; // The ID of the item to remove
-        const filteredItems = items.filter((item) => item.id!== itemIdToRemove);
-        localStorage.setItem('ToCart', JSON.stringify(filteredItems)); // Stringify the filtered array before storing
+        const itemIdToRemove = id;
+        const filteredItems = items.filter(
+          (item) => item.id !== itemIdToRemove
+        );
+        localStorage.setItem('ToCart', JSON.stringify(filteredItems));
       }
     }
+  }
 }
