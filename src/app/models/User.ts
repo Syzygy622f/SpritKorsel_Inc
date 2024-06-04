@@ -1,11 +1,11 @@
 export interface user{
-    firstName: string;
-    lastName: string;
-    age: number;
-    email: string;
-    mobil: number;
-    address: string;
-    postcode: number;
-    city: string;
-    password: string;
+    FirstName: string;
+    LastName: string;
+    Age: number;
+    Email: string;
+    Mobile: number;
+    Address: string;
+    Postcode: number;
+    City: string;
+    Password: string;
 }
